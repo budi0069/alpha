@@ -1,0 +1,93 @@
+body {
+  font-family: Poppins, sans-serif !important;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.neobrutalism-card {
+  background-color: #fff;
+  border: 2px solid #555;
+  border-radius: 15px;
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 500px !important;
+}
+
+.neobrutalism-card:hover {
+  transform: translateY(5px);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.8);
+}
+
+.btn-neobrutalism {
+  font-size: 1.2rem;
+  background-color: #f6aa2f;
+  border: 2px solid #555;
+  border-radius: 5px;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+  color: #333;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-neobrutalism:hover {
+  background-color: #f6aa2f;
+  border: 2px solid #555;
+  transform: translateY(5px);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.btn-neobrutalism:active {
+  background-color: #f6aa2f !important;
+  border: 2px solid #555 !important;
+  transform: translateY(5px);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.btn-neobrutalism-blue {
+  font-size: 1.2rem;
+  background-color: #90ccd4;
+  border: 2px solid #555;
+  border-radius: 5px;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+  color: #333;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-neobrutalism-blue:hover {
+  background-color: #90ccd4;
+  border: 2px solid #555;
+  transform: translateY(5px);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.btn-neobrutalism-blue:active {
+  background-color: #90ccd4 !important;
+  border: 2px solid #555 !important;
+  transform: translateY(5px);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.card-title {
+  color: #333;
+  font-weight: bold;
+}
+
+.card-text {
+  color: #333;
+}
+
+input {
+  padding: 20px 20px !important;
+  font-size: 1.2rem !important;
+}
+
+.url {
+  text-decoration: none;
+}
