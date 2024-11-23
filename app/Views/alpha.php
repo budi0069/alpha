@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <img src="https://saweria.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhomepage_characters.a1cf6cc4.svg&w=3840&q=75" alt="ORANG MALAS" class="img-fluid mb-3">
                     <h3 class="card-title text-center">ALPHA</h3>
-                    <p class="card-text">Aplikasi Laboratorium Pengeloaan dan Historis Akses</p>
+                    <p class="card-text">Aplikasi Laboratorium Pengelolaan dan Historis Akses</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <a href="<?= base_url('/daftar') ?>" class="btn btn-neobrutalism">Daftar</a>
                         <a href="<?= base_url('/masuk') ?>" class="btn btn-neobrutalism-blue">Masuk</a>
