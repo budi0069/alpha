@@ -21,7 +21,7 @@
                     <h3 class="card-title text-center">ALPHA</h3>
                     <p class="card-text">Aplikasi Laboratorium Pengelolaan dan Historis Akses</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="<?= base_url('/daftar') ?>" class="btn btn-neobrutalism">Daftar</a>
+                        <a href="<?= base_url('/formdaftar') ?>" class="btn btn-neobrutalism">Daftar</a>
                         <a href="<?= base_url('/masuk') ?>" class="btn btn-neobrutalism-blue">Masuk</a>
                     </div>
                 </div>

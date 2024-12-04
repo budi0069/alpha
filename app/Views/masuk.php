@@ -25,7 +25,7 @@
                         <input class="form-control" type="text" name="nim" placeholder="Masukan NIM"><br>
                         <button class="btn btn-neobrutalism-blue" type="submit">Masuk</button>
                     </form>
-                    <p class="mt-3">Belum Punya Akun? <a class="url" href="/">Daftar</a></p>
+                    <p class="mt-3">Belum Punya Akun? <a class="url" href="/formdaftar">Daftar</a></p>
                 </div>
             </div>
         </div>
