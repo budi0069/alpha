@@ -9,3 +9,4 @@ $routes->get('/', 'Alpha::index');
 $routes->get('/formdaftar', 'Alpha::formDaftar');
 $routes->post('/formdaftar/daftar', 'Alpha::Daftar');
 $routes->get('/masuk', 'Alpha::formMasuk');
+$routes->post('/masuk', 'Alpha::masuk');

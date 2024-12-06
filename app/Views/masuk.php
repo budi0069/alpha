@@ -20,7 +20,17 @@
                     <img src="https://saweria.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhomepage_characters.a1cf6cc4.svg&w=3840&q=75" alt="ORANG MALAS" class="img-fluid mb-3">
 
                     <h3 class="text-center">Masuk</h3>
-                    <form action="">
+                    <!-- < ?= $success?> -->
+                    <?php if (session()->getFlashdata('success')) { ?>
+                        <div class="alert alert-success">
+                            <?= session()->getFlashdata('success') ?>
+                        </div>
+                    <?php }elseif(session()->getFlashdata('error')){ ?>
+                        <div class="alert alert-danger">
+                            <?= session()->getFlashdata('error') ?>
+                        </div>
+                            <?php }?>
+                    <form action="/masuk" method="post">
                         <label class="form-label" for="">NIM</label>
                         <input class="form-control" type="text" name="nim" placeholder="Masukan NIM"><br>
                         <button class="btn btn-neobrutalism-blue" type="submit">Masuk</button>
