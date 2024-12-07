@@ -3,8 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\UserLog;
-use App\Models\UserModel;
+use App\Models\Users;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class Alpha extends BaseController
@@ -14,26 +13,27 @@ class Alpha extends BaseController
 
         return view('alpha');
     }
-    public function formDaftar()
-    {
-        $data = [
-            'title' => 'Form Daftar'
-        ];
-        return view('form_daftar',$data);
-    }
     public function daftar()
     {
-        $daftar = new UserModel();
         $data = [
-            'nim' => $this->request->getVar('nim'),
-            'nama'=> $this->request->getVar('nama'),
+            'title' => 'Daftar | Alpha'
         ];
-        // dd($data);
-        $daftar->insert($data);
-        return redirect()->to('/formdaftar')->with('success','Daftar Akun Berhasil');
+        return view('form_daftar', $data);
     }
-    public function formMasuk()
+    public function store()
     {
-          return view('masuk');
-    }    
+        $usersModel = new Users();
+        $user = [
+            'nim' => $this->request->getPost('nim'),
+            'nama' => $this->request->getPost('nama'),
+            'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
+            'password' => md5(str_replace('-', '', date('dmY', strtotime($this->request->getPost('tanggal_lahir')))))
+        ];
+        $usersModel->insert($user);
+        return redirect()->to('/masuk')->with('success', 'Daftar Akun Berhasil');
+    }
+    public function masuk()
+    {
+        return view('masuk');
+    }
 }

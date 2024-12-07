@@ -6,7 +6,8 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Alpha::index');
-$routes->get('/formdaftar', 'Alpha::formDaftar');
-$routes->post('/formdaftar/daftar', 'Alpha::Daftar');
-$routes->get('/masuk', 'Alpha::formMasuk');
-$routes->post('/masuk', 'Alpha::masuk');
+$routes->get('/daftar', 'Alpha::daftar');
+$routes->post('/store', 'Alpha::store');
+$routes->get('/store', 'Alpha::store');
+$routes->get('/masuk', 'Alpha::masuk');
+// $routes->post('/masuk', 'Alpha::masuk');
