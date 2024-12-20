@@ -10,4 +10,4 @@ $routes->get('/daftar', 'Alpha::daftar');
 $routes->post('/store', 'Alpha::store');
 $routes->get('/store', 'Alpha::store');
 $routes->get('/masuk', 'Alpha::masuk');
-// $routes->post('/masuk', 'Alpha::masuk');
+$routes->post('/masuk/pakai', 'Alpha::pakai');

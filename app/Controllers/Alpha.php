@@ -36,4 +36,7 @@ class Alpha extends BaseController
     {
         return view('masuk');
     }
+    public function pakai(){
+        
+    }
 }

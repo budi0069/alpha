@@ -33,7 +33,7 @@
                             <?= session()->getFlashdata('error') ?>
                         </div>
                     <?php } ?>
-                    <form action="/masuk" method="post">
+                    <form action="/masuk/pakai" method="post">
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label" for="">NIM</label>
