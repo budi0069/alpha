@@ -33,8 +33,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label" for="">NIM</label>
-                                <input class="form-control" id="nim" type="text" name="nim" placeholder="Masukan NIM"
-                                    autofocus required>
+                                <input class="form-control" id="nim" type="text" name="nim" placeholder="Masukan NIM" autofocus required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" for="">Tanggal Lahir</label>

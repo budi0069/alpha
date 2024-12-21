@@ -49,6 +49,32 @@ body {
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
 }
 
+.btn-neobrutalism-red {
+  font-size: 1.2rem;
+  background-color: #F72C5B;
+  border: 2px solid #555;
+  border-radius: 5px;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+  color: #333;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-neobrutalism-red:hover {
+  background-color: #F72C5B;
+  border: 2px solid #555;
+  transform: translateY(5px);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+.btn-neobrutalism-red:active {
+  background-color: #F72C5B !important;
+  border: 2px solid #555 !important;
+  transform: translateY(5px);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+
 .btn-neobrutalism-blue {
   font-size: 1.2rem;
   background-color: #90ccd4;

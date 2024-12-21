@@ -33,50 +33,17 @@
                             <?= session()->getFlashdata('error') ?>
                         </div>
                     <?php } ?>
-                    <form action="/masuk/pakai" method="post">
+                    <form action="/masuk/ceklogin" method="post">
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-md-12 mb-2">
                                 <label class="form-label" for="">NIM</label>
                                 <input class="form-control" type="text" id="nim" name="nim" placeholder="Masukan NIM"
                                     required>
                             </div>
-                            <div class="col-md-6" id="tanggal_lahir">
-                                <label class="form-label" for="">Tanggal Lahir</label>
-                                <input class="form-control" id="tanggal_lahir" type="date" name="tanggal_lahir">
-                            </div>
-                            <div class="col-md-6 d-none" id="password">
+                            <div class="col-md-12" id="password">
                                 <label class="form-label" for="">Password</label>
                                 <input class="form-control" type="password" name="password"
                                     placeholder="Masukan Password">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-12">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch"
-                                        id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Gunakan
-                                        Password</label>
-                                </div>
-                                <script>
-                                    const switchInput = document.getElementById('flexSwitchCheckDefault');
-                                    const tanggalLahirDiv = document.getElementById('tanggal_lahir');
-                                    const passwordDiv = document.getElementById('password');
-
-                                    switchInput.addEventListener('change', function () {
-                                        if (this.checked) {
-                                            document.querySelector('input[name="tanggal_lahir"]').removeAttribute('required');
-                                            document.querySelector('input[name="password"]').setAttribute('required', '');
-                                            tanggalLahirDiv.classList.add('d-none');
-                                            passwordDiv.classList.remove('d-none');
-                                        } else {
-                                            document.querySelector('input[name="tanggal_lahir"]').setAttribute('required', '');
-                                            document.querySelector('input[name="password"]').removeAttribute('required');
-                                            tanggalLahirDiv.classList.remove('d-none');
-                                            passwordDiv.classList.add('d-none');
-                                        }
-                                    });
-                                </script>
                             </div>
                         </div>
                         <button class="btn btn-neobrutalism-blue" type="submit">Masuk</button>
