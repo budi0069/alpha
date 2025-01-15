@@ -3,8 +3,11 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Users;
+use App\Models\PemakaianModel;
+use App\Models\UserModel;
 use CodeIgniter\HTTP\ResponseInterface;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class Alpha extends BaseController
 {
@@ -22,7 +25,7 @@ class Alpha extends BaseController
     }
     public function store()
     {
-        $usersModel = new Users();
+        $usersModel = new userModel();
         $user = [
             'nim' => $this->request->getPost('nim'),
             'nama' => $this->request->getPost('nama'),
@@ -36,12 +39,13 @@ class Alpha extends BaseController
     {
         return view('masuk');
     }
-    public function ceklogin(){
+    public function ceklogin()
+    {
         // Ambil input dari request
         $nim = $this->request->getPost('nim');
         $password = $this->request->getPost('password');
         //cek password
-        $usersModel = new Users();
+        $usersModel = new userModel();
         $user = $usersModel->where('nim', $nim)->first();
         // dd($user);
         if ($user) {
@@ -61,16 +65,49 @@ class Alpha extends BaseController
             return redirect()->back()->with('error', 'User tidak ditemukan.');
         }
     }
-    public function keluar() {
+    public function keluar()
+    {
         session()->destroy();
         return redirect()->to('masuk');
     }
-    public function riwayat_pemakaian(){
-        return view('riwayat_pemakaian');
+    public function riwayat_pemakaian()
+    {
+        $riwayat = new PemakaianModel();
+        $user = new UserModel();
+        $data = [
+            'riwayat' => $riwayat->findAll()
+        ];
+        return view('riwayat_pemakaian', $data);
     }
 
-    public function logout(){
+    public function logout()
+    {
         session()->destroy();
         return redirect()->to('/');
+    }
+    public function cetak()
+    {
+        $type = $this->request->getPost('type');
+        $tgl_awal = $this->request->getPost('start_date');
+        $tgl_akhir = $this->request->getPost('end_date');
+        if ($tgl_awal && $tgl_akhir) {
+            $riwayat = new PemakaianModel();
+            $data = [
+                'tgl_awal'  => $tgl_awal,
+                'tgl_akhir' => $tgl_akhir,
+                'riwayat'   => $riwayat->where('created_at >=', $tgl_awal)->where('created_at <=', $tgl_akhir)->findAll()
+            ];
+            $html = view('cetak', $data);
+            $options = new  Options();
+            $options->set('isHtml5ParserEnabled', true);
+            $options->set('isRemoteEnabled', true);
+
+            $dompdf = new Dompdf($options);
+            $dompdf->loadHtml($html);
+            $dompdf->setPaper('A4', 'portrait');
+            $dompdf->render();
+
+            $dompdf->stream('laporan.pdf', ['Attachment' => false]);
+        }
     }
 }

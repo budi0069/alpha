@@ -13,3 +13,6 @@ $routes->get('/masuk', 'Alpha::masuk');
 $routes->get('/riwayat_pemakaian', 'Alpha::riwayat_pemakaian');
 $routes->post('/masuk/ceklogin', 'Alpha::ceklogin');
 $routes->get('/logout', 'Alpha::logout');
+
+$routes->post('/admin/cetak', 'Alpha::cetak');
+

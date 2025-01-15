@@ -14,41 +14,30 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="card neobrutalism-card">
         <h2 class="text-center">Riwayat Pemakaian</h2>
+        <section>
+        <a class="btn btn-neobrutalism-green mb-3" href="/form_input">Tambah</a>
+        </section>
         <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
                 <thead class="table-primary text-white">
                     <tr>
                         <th>No</th>
+                        <th>Nim</th>
+                        <th>pemakaian</th>
                         <th>Tanggal</th>
-                        <th>Deskripsi</th>
-                        <th>Jumlah</th>
-                        <th>Status</th>
+                        <th>sofware</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Contoh Data -->
                     <tr>
-                        <td>1</td>
-                        <td>2024-12-01</td>
-                        <td>Pembelian Alat</td>
-                        <td>Rp 1,500,000</td>
-                        <td><span class="badge bg-success">Selesai</span></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>2024-12-05</td>
-                        <td>Pembayaran Listrik</td>
-                        <td>Rp 500,000</td>
-                        <td><span class="badge bg-warning">Menunggu</span></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>2024-12-10</td>
-                        <td>Perawatan Kendaraan</td>
-                        <td>Rp 2,000,000</td>
-                        <td><span class="badge bg-danger">Ditolak</span></td>
+                        <?php foreach ($riwayat as $r) { ?>
+                            <td><?= $r['id_pemakaian'] ?></td>
+                            <td><?= $r['nim'] ?></td>
+                            <td><?= $r['pemakaian'] ?></td>
+                            <td><?= date('d M Y', strtotime($r['created_at'])) ?></td>
+                        <?php } ?>
                     </tr>
                 </tbody>
             </table>
@@ -60,6 +49,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const sidebar = document.getElementById('sidebar');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>
