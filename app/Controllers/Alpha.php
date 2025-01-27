@@ -73,11 +73,21 @@ class Alpha extends BaseController
     public function riwayat_pemakaian()
     {
         $riwayat = new PemakaianModel();
-        $user = new UserModel();
+        $session = session()->get('users');
         $data = [
+            'session' => $session,
             'riwayat' => $riwayat->findAll()
         ];
+        // dd($session);
         return view('riwayat_pemakaian', $data);
+    }
+    public function form_input()
+    {
+        $session = session()->get('users');
+        $data = [
+            'session' => $session
+        ];
+        return view('form_input',$data);
     }
 
     public function logout()
@@ -109,5 +119,19 @@ class Alpha extends BaseController
 
             $dompdf->stream('laporan.pdf', ['Attachment' => false]);
         }
+    }
+    public function simpan(){
+        $nim            = session()->get('users')['nim'];
+        $pemakaian      = $this->request->getVar('pemakaian');
+        $software       = $this->request->getVar('software');
+        $pemakaianModel = new PemakaianModel();
+        $data = [
+            'nim'       => $nim,
+            'pemakaian' => $pemakaian,
+            'software'  => $software
+        ];
+        // dd($data);
+        $pemakaianModel->insert($data);
+        return redirect()->to('riwayat_pemakaian');
     }
 }

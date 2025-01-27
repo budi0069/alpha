@@ -14,49 +14,48 @@
 </head>
 
 <body>
-    <div class="card neobrutalism-card">
-        <h2 class="text-center">Riwayat Pemakaian</h2>
-        <section>
-        <a class="btn btn-neobrutalism-green mb-3" href="/form_input">Tambah</a>
+    <div class="card neobrutalism-card p-4">
+        <h2 class="text-center mb-4">Riwayat Pemakaian</h2>
+        <section class="mb-4">
+            <a class="btn btn-neobrutalism-green" href="/form_input">Tambah</a>
         </section>
         <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
                 <thead class="table-primary text-white">
                     <tr>
                         <th>No</th>
-                        <th>Nim</th>
-                        <th>pemakaian</th>
+                        <th>NIM</th>
+                        <th>Pemakaian</th>
                         <th>Tanggal</th>
-                        <th>sofware</th>
+                        <th>Software</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <?php foreach ($riwayat as $r) { ?>
-                            <td><?= $r['id_pemakaian'] ?></td>
-                            <td><?= $r['nim'] ?></td>
-                            <td><?= $r['pemakaian'] ?></td>
-                            <td><?= date('d M Y', strtotime($r['created_at'])) ?></td>
+                    <?php if (!empty($riwayat)) { ?>
+                        <?php foreach ($riwayat as $index => $r) { ?>
+                            <tr>
+                                <td><?= $index + 1 ?></td>
+                                <td><?= htmlspecialchars($r['nim'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td><?= htmlspecialchars($r['pemakaian'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td><?= date('d M Y', strtotime($r['created_at'])) ?></td>
+                                <td><?= htmlspecialchars($r['software'], ENT_QUOTES, 'UTF-8') ?></td>
+                            </tr>
                         <?php } ?>
-                    </tr>
+                    <?php } else { ?>
+                        <tr>
+                            <td colspan="5" class="text-center">Tidak ada data riwayat pemakaian</td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
-        <form action="/logout">
+        <form action="/logout" method="POST" class="mt-3">
             <button type="submit" class="btn btn-neobrutalism-red">Logout</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const sidebar = document.getElementById('sidebar');
-
-        menuBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-        });
-    </script>
 </body>
 
 </html>

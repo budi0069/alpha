@@ -9,7 +9,7 @@ class PemakaianModel extends Model
     protected $table            = 'pemakaian';
     protected $primaryKey       = 'id_pemakaian';
     protected $useAutoIncrement = true;
-    protected $allowedFields    = ['nim','created_at'];
+    protected $allowedFields    = ['nim','pemakaian','software','created_at'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
