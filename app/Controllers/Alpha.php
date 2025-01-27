@@ -134,4 +134,9 @@ class Alpha extends BaseController
         $pemakaianModel->insert($data);
         return redirect()->to('riwayat_pemakaian');
     }
+    public function hapus($id_pemakaian){
+        $pemakaianModel = new PemakaianModel();
+        $pemakaianModel->delete($id_pemakaian);
+        return redirect()->to('riwayat_pemakaian');
+    }
 }

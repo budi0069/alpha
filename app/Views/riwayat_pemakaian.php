@@ -28,6 +28,7 @@
                         <th>Pemakaian</th>
                         <th>Tanggal</th>
                         <th>Software</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +40,9 @@
                                 <td><?= htmlspecialchars($r['pemakaian'], ENT_QUOTES, 'UTF-8') ?></td>
                                 <td><?= date('d M Y', strtotime($r['created_at'])) ?></td>
                                 <td><?= htmlspecialchars($r['software'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td>
+                                    <a href="<?php base_url(); ?>/riwayat_pemakaian/hapus/<?= $r['id_pemakaian'] ?>" class="btn btn-sm btn-neobrutalism">Hapus</a>
+                                </td>
                             </tr>
                         <?php } ?>
                     <?php } else { ?>
